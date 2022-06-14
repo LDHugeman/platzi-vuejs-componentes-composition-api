@@ -2,5 +2,7 @@
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "editor.guides.bracketPairs": true,
+  "files.eol": "\n"
 }

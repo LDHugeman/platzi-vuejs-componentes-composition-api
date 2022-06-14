@@ -1,4 +1,5 @@
 <template>
+  <div><Modal /></div>
   <button @click="show = !show">Menu</button>
   <transition name="fade">
     <Menu v-show="show" />
@@ -6,10 +7,12 @@
 </template>
 
 <script>
+import Modal from "./components/Modal";
 import Menu from "./components/Menu";
+
 export default {
   name: "App",
-  components: { Menu },
+  components: { Menu, Modal },
   data() {
     return {
       show: false,

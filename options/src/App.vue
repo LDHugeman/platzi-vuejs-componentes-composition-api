@@ -1,22 +1,23 @@
 <template>
-  <div><Modal /></div>
-  <button @click="show = !show">Menu</button>
-  <transition name="fade">
-    <Menu v-show="show" />
-  </transition>
+  <div>{{ text }}</div>
 </template>
 
 <script>
-import Modal from "./components/Modal";
-import Menu from "./components/Menu";
-
 export default {
   name: "App",
-  components: { Menu, Modal },
   data() {
     return {
-      show: false,
+      text: "Hola Vue",
     };
+  },
+  beforeCreate() {
+    console.log("beforeCreate", this.$data, this.$el);
+  },
+  created() {
+    console.log("created", this.$data, this.$el);
+  },
+  mounted() {
+    console.log("mounted", this.$data, this.$el);
   },
 };
 </script>

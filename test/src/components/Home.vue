@@ -1,15 +1,19 @@
 <template>
-  <div>Hola</div>
+  <div>{{obj}}</div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { ref } from "vue" 
 export default {
   name: "HomeComponent",
   setup() {
-    onMounted(()=>{
-      console.log("mounted!");
-    });
+    const obj = ref({counter: 0});
+    
+    setInterval(()=> obj.value.counter++, 500);
+
+    return{
+      obj,
+    }
   },
 };
 </script>

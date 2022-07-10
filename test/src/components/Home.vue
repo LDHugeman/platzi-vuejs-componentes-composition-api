@@ -3,13 +3,19 @@
 </template>
 
 <script>
-import { ref } from "vue" 
+import {reactive, watch } from "vue" 
 export default {
   name: "HomeComponent",
   setup() {
-    const obj = ref({counter: 0});
+    const obj = reactive({counter: 0});
     
-    setInterval(()=> obj.value.counter++, 500);
+    setInterval(()=> obj.counter++, 500);
+
+    watch(() => obj.counter, (valor, anterior)=>{
+      console.log(valor, anterior);
+    });
+
+    
 
     return{
       obj,

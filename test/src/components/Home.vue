@@ -11,12 +11,18 @@ export default {
   },
   name: "HomeComponent",
   
-  setup(props) {
+  setup(props, {expose}) {
     const {firstName, lastName} = toRefs(props);
 
     const fullName = computed(()=>{
       return `${firstName.value} ${lastName.value}`;
-    })
+    });
+
+    const foo = ()=> console.log();
+
+    expose({
+        fullName,
+    });
 
     return{
       fullName

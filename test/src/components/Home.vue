@@ -5,15 +5,18 @@
 </template>
 
 <script>
-import { watch, ref, toRefs, computed, inject } from "vue" 
-export default {
-  props: {
+  export default {
+    name: "HomeComponent"
+  }
+</script>
+<script setup>
+import { defineExpose, defineProps, watch, ref, toRefs, computed, inject } from "vue" 
+  const props = defineProps({
     firstName: String,
     lastName: String,
-  },
-  name: "HomeComponent",
+  })
   
-  setup(props, {expose}) {
+  
     const {firstName, lastName} = toRefs(props);
 
     const fullName = computed(()=>{
@@ -22,8 +25,8 @@ export default {
 
     const username = inject("username");
 
-    expose({
-        fullName,
+    defineExpose({
+      fullName
     });
 
     const btn = ref(null)
@@ -34,11 +37,4 @@ export default {
       console.log(valor)
     });
 
-    return{
-      fullName,
-      username,
-      btn
-    }
-  },
-};
 </script>
